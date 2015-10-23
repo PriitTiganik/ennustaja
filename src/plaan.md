@@ -1,22 +1,22 @@
-*** Projekti plaan ***
+## Projekti plaan 
 
-* Esmane plaane 23.10.2015 *
+### Esmane plaane 23.10.2015 
 
-Kuidas kasutajakogemus välja näeb?
-- kasutaja käivitab programmi
+*Kuidas kasutajakogemus vÃ¤lja nÃ¤eb?*
+- kasutaja kÃ¤ivitab programmi
 - aknas palutakse tal sisestada enda pikkus, peale mida kuvatakse talle programmi poolt ennustus tema kaalu kohta
-- kasutaja sisestab ka enda kaalu, peale mida ennustust muduetakse vastavalt sellele, kuidas lisarida algandmestikus ennustust täpsemaks tegi
+- kasutaja sisestab ka enda kaalu, peale mida ennustust muduetakse vastavalt sellele, kuidas lisarida algandmestikus ennustust tÃ¤psemaks tegi
 
-Mida programm teeb?
-- käivitamisel võtab ühendus postgresqli andmebaasiga ja toob sealt viimase treenitud mudeli ja seal olevad treeningandmed
-- viskab akna lahti, küsib kasutajalt pikkust.
-- kasutaja sisestab pikkuse, misjärel arvutatakse talle eelmise mudeli alusel välja kaal
+*Mida programm teeb?*
+- kÃ¤ivitamisel vÃµtab Ã¼hendus postgresqli andmebaasiga ja toob sealt viimase treenitud mudeli ja seal olevad treeningandmed
+- viskab akna lahti, kÃ¼sib kasutajalt pikkust.
+- kasutaja sisestab pikkuse, misjÃ¤rel arvutatakse talle eelmise mudeli alusel vÃ¤lja kaal
 - kasutaja on vales kaalus pettunud, kui sisestab siiski oma tegeliku kaalu
 - pikkus ja kaal lisatakse Javasse salvestatud andmetele ja ka andmebaasi
-- lisandunud andmetega treenitakse uus, loodetavasti täpsem mudel
+- lisandunud andmetega treenitakse uus, loodetavasti tÃ¤psem mudel
 - mudel salvestatakse andmebaasi
 
-Kui peamine teema on ära tehtud, saab antud kontseptsiooni edasi arendada, näiteks:
-- kuvada andmete sisestajal statistikat, kuidas tema andmetest mudel täpsemaks muutus
+*Kui peamine teema on Ã¤ra tehtud, saab antud kontseptsiooni edasi arendada, nÃ¤iteks:*
+- kuvada andmete sisestajal statistikat, kuidas tema andmetest mudel tÃ¤psemaks muutus
 - siduda mudeli arendus R-iga
 - mitte modelleerida kaalu vaid midagi keerulisemat
