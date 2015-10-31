@@ -26,5 +26,7 @@ Priit Tiganik
 
 
 *Kuidas teha?*
+*vorm*
+peale kasutaja andmete sisestamist ja andmete saatmist andmebaasi tuuakse sama kasutaja andmed ka vormile tagasi. Nii pidavat ägedam olema.
 *Andmebaas*
 Esimene mõte PostgreSQL, aga Ehk sobib hoopis SQLite? See on "serverless" SQL andmebaas. Saate oma lahendusega andmebaasi faili ilusal kujul kaasa pakendada ning kõiki neid probleeme vältida. Java-maailmas kasutatakse SQLite asemel tihti H2-nimelist andmebaasi, kuna see on ise Javas kirjutatud.
