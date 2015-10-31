@@ -23,3 +23,8 @@ Priit Tiganik
 - kuvada andmete sisestajal statistikat, kuidas tema andmetest mudel täpsemaks muutus
 - siduda mudeli arendus R-iga
 - mitte modelleerida kaalu vaid midagi keerulisemat
+
+
+*Kuidas teha?*
+*Andmebaas*
+Esimene mõte PostgreSQL, aga Ehk sobib hoopis SQLite? See on "serverless" SQL andmebaas. Saate oma lahendusega andmebaasi faili ilusal kujul kaasa pakendada ning kõiki neid probleeme vältida. Java-maailmas kasutatakse SQLite asemel tihti H2-nimelist andmebaasi, kuna see on ise Javas kirjutatud.
