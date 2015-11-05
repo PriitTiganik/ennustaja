@@ -1,11 +1,11 @@
-package regressioon;
+package regression;
 
 import java.util.Arrays;
 
 /**
- * Created by Miku on 31.10.2015.
+ * Created by Priit on 31.10.2015.
  */
-public class regress {
+public class linear_regression {
     public static void main(String[] args) {
         int[][] data = insertData();
         double[] coefs = regression(data);
