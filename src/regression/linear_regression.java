@@ -11,6 +11,12 @@ public class linear_regression {
         double[] coefs = regression(data);
 
         System.out.println(coefs[0]+","+coefs[1]);
+
+    }
+    public static double[] test() {
+        int[][] data = insertData();
+        double[] coefs = regression(data);
+        return coefs;
     }
 
     private static int[][] insertData() {

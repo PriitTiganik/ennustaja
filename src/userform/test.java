@@ -6,6 +6,9 @@ import javafx.scene.control.TabPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import regression.linear_regression;
+
+import java.util.Arrays;
 
 
 /**
@@ -14,10 +17,7 @@ import javafx.stage.Stage;
 public class test extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        TabPane tabPane = new TabPane();
-        Tab tab = new Tab();
-        tab.setText("new tab");
-        tab.setContent(new Rectangle(200,200, Color.BLUE));
-        tabPane.getTabs().add(tab);
+        double[] aa = linear_regression.test();
+        System.out.println(Arrays.toString(aa));
     }
 }
