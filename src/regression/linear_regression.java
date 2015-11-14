@@ -8,18 +8,26 @@ import java.util.List;
  * Created by Priit on 31.10.2015.
  */
 public class linear_regression {
+
+     static double[] coefs;
+
     public static void main(String[] args) {
+        calc_coefs();
+
+        System.out.println(coefs[0]+","+coefs[1]);
+    }
+
+    public static double[] calc_coefs() {
+
         //int[][] data = insertSampleData();
         String query = "SELECT id, weight, height from height_weight;";
         ArrayList<List> dataList = sql.postgresql.select(query);
         System.out.println((dataList.get(1).get(1)));
-
-        int[][] data = insertData(dataList); //kahe veeruga array, kus soltuv muutuja teine
+        int[][] data = insertData(dataList); //kahe veeruga array, kus soltuv muutuja esimene
         System.out.println(data.length);
-        double[] coefs = regression(data);
+        coefs = regression(data);
 
-        System.out.println(coefs[0]+","+coefs[1]);
-
+        return coefs;
     }
 
     private static int[][] insertData(ArrayList<List> dataList)  {
@@ -27,7 +35,7 @@ public class linear_regression {
         for (int i = 0; i < data.length; i++) {
             int y = Integer.parseInt((String)dataList.get(i).get(1));
             int x = Integer.parseInt((String)dataList.get(i).get(2));
-            data[i]= new int[]{x,y};
+            data[i]= new int[]{y,x};
         }
         return data;
     }

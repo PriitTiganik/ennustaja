@@ -41,19 +41,22 @@ public class userform extends Application {
 
         Button buttonDeleteWorkTable = new Button("kustuta andmed tabelist height_weigth");
         Button buttonRePopulateWorkTable = new Button("lisa originaalandmed tabelisse height_weigth");
+        Label  labelComments= new Label("");
 
         vbox.setSpacing(3);
         vbox.setAlignment(Pos.TOP_CENTER);
-        vbox.getChildren().addAll(buttonDeleteWorkTable,buttonRePopulateWorkTable );
+        vbox.getChildren().addAll(buttonDeleteWorkTable,buttonRePopulateWorkTable,labelComments );
         borderPane.setCenter(vbox );
-        tabUser.setContent(borderPane);
+        tabAdmin.setContent(borderPane);
 
         buttonDeleteWorkTable.setOnAction(event -> {
-
+            sql.postgresql.execute_query("delete from height_weight;");
+            labelComments.setText("height_weight tabelis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
         });
 
-        buttonDeleteWorkTable.setOnAction(event -> {
-
+        buttonRePopulateWorkTable.setOnAction(event -> {
+            sql.postgresql.execute_query("INSERT INTO height_weight SELECT * FROM height_weight_orig;");
+            labelComments.setText("height_weight tabelis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
         });
 
     }
@@ -89,10 +92,14 @@ public class userform extends Application {
             labelComments.setText(checkResult);
         });
         buttonSave.setOnAction(event -> {
-            labelComments.setText("");
+            sql.postgresql.execute_query("INSERT INTO height_weight (height, weight) VALUES ("+inputHeight + "," +inputWeight +");");
+            labelComments.setText("Salvestatud! \n" + "Andmebaasis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
         });
         buttonPredict.setOnAction(event -> {
-            labelComments.setText("");
+            double[] coefs = (regression.linear_regression.calc_coefs());
+            int ennustus = (int) (coefs[0]+coefs[1]*inputHeight);
+            System.out.println(coefs[0]+","+coefs[1]);
+            labelComments.setText("Sinu ennustatav kaal on:" +coefs[0]+"+"+coefs[1]+"*"+inputHeight+"="+ennustus);
         });
 
     }

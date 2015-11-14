@@ -99,7 +99,7 @@ public class postgresql {
 
     public static void execute_query(String query) {
         Statement stmt = null;
-        for (int i = 0; i < 2; i++) {
+        connect();
             try {
                 c.setAutoCommit(false);
                 stmt = c.createStatement();
@@ -109,12 +109,10 @@ public class postgresql {
                 c.close();
             } catch (Exception e) { //kui ei ole veel yhendust avatud, siis avab. Kui ei onnestu, siis error ja exit
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
-                System.out.println("Trying to connect");
-                connect();
-                if (i == 1){System.exit(0);}
+                System.exit(0);
             }
             System.out.println("Operation done successfully");
-        }
+
     }
 
     private static void insert() {
