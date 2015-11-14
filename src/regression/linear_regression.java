@@ -7,19 +7,21 @@ import java.util.Arrays;
  */
 public class linear_regression {
     public static void main(String[] args) {
-        int[][] data = insertData();
-        double[] coefs = regression(data);
+        //int[][] data = insertSampleData();
+        int[][] data = sql.postgresql.select();
+        System.out.println(data[1][1]);
+        //double[] coefs = regression(data);
 
-        System.out.println(coefs[0]+","+coefs[1]);
+        //System.out.println(coefs[0]+","+coefs[1]);
 
     }
     public static double[] test() {
-        int[][] data = insertData();
+        int[][] data = insertSampleData();
         double[] coefs = regression(data);
         return coefs;
     }
 
-    private static int[][] insertData() {
+    private static int[][] insertSampleData() {
         int[][] aa = new int[6][];
 
         aa[0]=new int[]{99, 43};

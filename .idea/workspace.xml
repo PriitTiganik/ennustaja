@@ -2,280 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="531c65a2-a3b7-4cf8-b54c-b9a5c9504fbe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_9_4_1205_jdbc4.xml" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\out\production\ennustaja\sql\META-INF\MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\out\production\ennustaja\sql\META-INF\services\java.sql.Driver" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\META-INF\MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\META-INF\services\java.sql.Driver" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\Driver$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\Driver$ConnectThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\Driver.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\PGConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\PGNotification.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\PGProperty.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\PGRefCursorResultSet.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\PGResultSetMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\PGStatement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\copy\CopyIn.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\copy\CopyManager.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\copy\CopyOperation.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\copy\CopyOut.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\copy\PGCopyInputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\copy\PGCopyOutputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\BaseConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\BaseResultSet.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\BaseStatement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\CachedQuery.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\ConnectionFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Encoding.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Field.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\JdbcCallParseInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Logger.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\NativeQuery.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Notification.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Oid.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\PGBindException.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\PGStream$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\PGStream.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\ParameterList.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Parser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\ProtocolConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Query.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\QueryExecutor.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\ResultCursor.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\ResultHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\ServerVersion$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\ServerVersion.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\SetupQueryRunner$SimpleResultHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\SetupQueryRunner.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\TypeInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\UTF8Encoding.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Utils.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\Version.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\VisibleBufferedInputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\ConnectionFactoryImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\FastpathParameterList.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\ProtocolConnectionImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\QueryExecutorImpl$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\QueryExecutorImpl$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\QueryExecutorImpl$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\QueryExecutorImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\SimpleParameterList.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v2\V2Query.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\CompositeParameterList.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\CompositeQuery.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\ConnectionFactoryImpl$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\ConnectionFactoryImpl$UnsupportedProtocolException.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\ConnectionFactoryImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\CopyInImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\CopyOperationImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\CopyOutImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\DescribeRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\ExecuteRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\Portal.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\ProtocolConnectionImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\QueryExecutorImpl$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\QueryExecutorImpl$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\QueryExecutorImpl$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\QueryExecutorImpl$ErrorTrackingResultHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\QueryExecutorImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\SimpleParameterList.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\SimpleQuery.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\V3ParameterList.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\core\v3\V3Query.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\PGConnectionPoolDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\PGPooledConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\PGPoolingDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\PGSimpleDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\common\BaseDataSource$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\common\BaseDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\common\PGObjectFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc23\AbstractJdbc23ConnectionPoolDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc23\AbstractJdbc23PooledConnection$ConnectionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc23\AbstractJdbc23PooledConnection$StatementHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc23\AbstractJdbc23PooledConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc23\AbstractJdbc23PoolingDataSource$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc23\AbstractJdbc23PoolingDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc23\AbstractJdbc23SimpleDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc4\AbstractJdbc4ConnectionPoolDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc4\AbstractJdbc4PooledConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc4\AbstractJdbc4PoolingDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ds\jdbc4\AbstractJdbc4SimpleDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\fastpath\Fastpath.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\fastpath\FastpathArg.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\geometric\PGbox.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\geometric\PGcircle.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\geometric\PGline.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\geometric\PGlseg.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\geometric\PGpath.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\geometric\PGpoint.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\geometric\PGpolygon.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\gss\GSSCallbackHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\gss\GssAction.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\gss\MakeGSS.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\GlobalHostStatusTracker$HostSpecStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\GlobalHostStatusTracker.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\HostChooser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\HostChooserFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\HostRequirement$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\HostRequirement$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\HostRequirement$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\HostRequirement$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\HostRequirement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\HostStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\MultiHostChooser$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\MultiHostChooser$HostSpecByTargetServerTypeComparator.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\MultiHostChooser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\hostchooser\SingleHostChooser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Array$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Array$PgArrayList.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Blob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2BlobClob$LOIterator.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2BlobClob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Clob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Connection$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Connection$TransactionCommandHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Connection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2DatabaseMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2ResultSet$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2ResultSet$CursorResultHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2ResultSet$NullObject.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2ResultSet$PrimaryKey.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2ResultSet.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2ResultSetMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Statement$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Statement$BatchResultHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Statement$CallableBatchResultHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Statement$StatementResultHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\AbstractJdbc2Statement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\ArrayAssistant.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\ArrayAssistantRegistry.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\CacheMetadata.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\CacheMetadataField.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\CachedQueryCreateAction.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\CallableQueryKey.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\EscapedFunctions.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\ResultWrapper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\TimestampUtils$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\TimestampUtils$ParsedTimestamp.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\TimestampUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\TypeInfoCache.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\optional\ConnectionPool.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\optional\PoolingDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc2\optional\SimpleDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3\AbstractJdbc3Blob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3\AbstractJdbc3Clob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3\AbstractJdbc3Connection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3\AbstractJdbc3DatabaseMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3\AbstractJdbc3ParameterMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3\AbstractJdbc3ResultSet.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3\AbstractJdbc3Statement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3\PSQLSavepoint.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3g\AbstractJdbc3gConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3g\AbstractJdbc3gResultSet.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc3g\AbstractJdbc3gStatement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4Array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4Blob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4Clob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4Connection$AbortCommand.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4Connection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4DatabaseMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4ParameterMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4ResultSet.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4ResultSetMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4SQLXML$NonPrintingErrorHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4SQLXML.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\AbstractJdbc4Statement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4Array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4Blob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4CallableStatement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4Clob.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4Connection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4DatabaseMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4ParameterMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4PreparedStatement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4ResultSet.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4ResultSetMetaData.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4SQLXML.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\Jdbc4Statement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\jdbc4\array\UUIDArrayAssistant.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\largeobject\BlobInputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\largeobject\BlobOutputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\largeobject\LargeObject.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\largeobject\LargeObjectManager.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\osgi\PGBundleActivator.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\osgi\PGDataSourceFactory$SingleUseProperties.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\osgi\PGDataSourceFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\DbKeyStoreSocketFactory$DbKeyStoreSocketException.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\DbKeyStoreSocketFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\MakeSSL.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\NonValidatingFactory$NonValidatingTM.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\NonValidatingFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\SingleCertValidatingFactory$SingleCertTrustManager.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\SingleCertValidatingFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\WrappedFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\jdbc4\AbstractJdbc4MakeSSL.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\jdbc4\LazyKeyManager.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\jdbc4\LibPQFactory$ConsoleCallbackHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\ssl\jdbc4\LibPQFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\sspi\NTDSAPI.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\sspi\NTDSAPIWrapper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\sspi\SSPIClient.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_bg.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_cs.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_de.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_es.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_fr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_it.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_ja.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_nl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_pl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_pt_BR.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_ru.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_sr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_tr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_zh_CN.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\translation\messages_zh_TW.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\Base64.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\ByteConverter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\CanEstimateSize.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\GT.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\HStoreConverter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\HostSpec.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\LruCache$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\LruCache$CreateAction.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\LruCache$EvictAction.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\LruCache.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\MD5Digest.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGBinaryObject.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGInterval.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGJDBCMain.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGTime.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGTimestamp.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGbytea.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGmoney.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGobject.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PGtokenizer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PSQLDriverVersion.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PSQLException.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PSQLState.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\PSQLWarning.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\ServerErrorMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\SharedTimer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\StreamWrapper$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\StreamWrapper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\util\UnixCrypt.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\xa\PGXAConnection$ConnectionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\xa\PGXAConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\xa\PGXADataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\xa\PGXADataSourceFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\xa\PGXAException.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\xa\RecoveredXid.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\xa\jdbc3\AbstractJdbc3XADataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\priit\Documents\GitHub\ennustaja\src\sql\org\postgresql\xa\jdbc4\AbstractJdbc4XADataSource.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ennustaja/sql/postgresql.class" afterPath="$PROJECT_DIR$/out/production/ennustaja/sql/postgresql.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ennustaja.iml" afterPath="$PROJECT_DIR$/ennustaja.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/regression/linear_regression.java" afterPath="$PROJECT_DIR$/src/regression/linear_regression.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sql/postgresql.java" afterPath="$PROJECT_DIR$/src/sql/postgresql.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -311,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="linear_regression.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="linear_regression.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/regression/linear_regression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.52007645">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -326,19 +53,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="postgresql.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="postgresql.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sql/postgresql.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56576574">
-              <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -367,9 +94,9 @@
         <option value="$PROJECT_DIR$/src/plaan.md" />
         <option value="$PROJECT_DIR$/src/form/vorm_graafiline.form" />
         <option value="$PROJECT_DIR$/src/userform/userform.java" />
-        <option value="$PROJECT_DIR$/src/regression/linear_regression.java" />
         <option value="$PROJECT_DIR$/src/userform/test.java" />
         <option value="$PROJECT_DIR$/src/sql/postgresql.java" />
+        <option value="$PROJECT_DIR$/src/regression/linear_regression.java" />
       </list>
     </option>
   </component>
@@ -377,9 +104,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="734" />
-    <option name="height" value="867" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -404,6 +132,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -457,28 +187,6 @@
               <option name="myItemId" value="sql" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="postgresql-9.4-1205.jdbc4.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ennustaja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ennustaja" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -501,8 +209,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -519,7 +225,7 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager" selected="Application.postgresql">
+  <component name="RunManager" selected="Application.linear_regression">
     <configuration default="false" name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -568,6 +274,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="sql.postgresql" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ennustaja" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="linear_regression" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="regression.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="regression.linear_regression" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -740,16 +466,18 @@
       <setting name="rowsRange" value="" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.test" />
       <item index="1" class="java.lang.String" itemvalue="Application.userform" />
       <item index="2" class="java.lang.String" itemvalue="Application.postgresql" />
+      <item index="3" class="java.lang.String" itemvalue="Application.linear_regression" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.postgresql" />
-        <item index="1" class="java.lang.String" itemvalue="Application.test" />
-        <item index="2" class="java.lang.String" itemvalue="Application.userform" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.linear_regression" />
+        <item index="1" class="java.lang.String" itemvalue="Application.postgresql" />
+        <item index="2" class="java.lang.String" itemvalue="Application.test" />
+        <item index="3" class="java.lang.String" itemvalue="Application.userform" />
       </list>
     </recent_temporary>
   </component>
@@ -767,22 +495,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="734" height="867" extended-state="0" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292517" sideWeight="0.48813057" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292517" sideWeight="0.48813057" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20680273" sideWeight="0.36795253" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2594086" sideWeight="0.3717765" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20680273" sideWeight="0.6320475" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2594086" sideWeight="0.6282235" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11424332" sideWeight="0.492" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15186246" sideWeight="0.492" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -793,6 +520,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -837,6 +565,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sql/postgresql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/userform/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/userform/userform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="145" selection-start-line="98" selection-start-column="145" selection-end-line="98" selection-end-column="145" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -845,8 +599,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sql/postgresql.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56576574">
-          <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/regression/linear_regression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52007645">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding />
         </state>
       </provider>

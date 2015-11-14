@@ -5,6 +5,8 @@ package sql;
  */
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 //http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
 //https://jdbc.postgresql.org/download.html alustuseks tomba alla draiver ja pane see paketi sisse. parem klikk ja make library vms
@@ -19,11 +21,57 @@ public class postgresql {
         connect();
         //insert();
         //delete();
+        //select_example();
         select();
 
     }
 
-    private static void select()  {
+
+    public static int[][] select() {
+
+        connect();
+
+        Statement stmt = null;
+
+            try {
+                c.setAutoCommit(false);
+
+                stmt = c.createStatement();
+                stmt = c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                ResultSet rs = stmt.executeQuery( "SELECT id, weight, height from height_weight;" );
+
+                ArrayList a = new ArrayList();
+                while ( rs.next() ) {
+                    a.add(new int[]{rs.getInt("id"),rs.getInt("height"),rs.getInt("weight")});
+                }
+                System.out.println((a));
+                int[][] resultTable = new int[a.size()][];
+                int i =0;
+                rs.beforeFirst();//scrollib rs algusesse
+                while ( rs.next() ) {
+                    resultTable[i] =new int[]{rs.getInt("id"),rs.getInt("height"),rs.getInt("weight")};
+
+                   // resultTable[i][0]=rs.getInt("id");
+                    //resultTable[i][1]=rs.getInt("height");
+                    //resultTable[i][2]=rs.getInt("weight");
+
+                    i++;
+                }
+                //System.out.println(Arrays.toString(resultTable));
+                //System.out.println(resultTable[1]);
+                rs.close();
+                stmt.close();
+                return resultTable;
+
+            } catch ( Exception e ) {
+                System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+                System.exit(0);
+            }
+            System.out.println("Operation done successfully");
+        return new int[0][];
+    }
+
+    private static void select_example()  {
 
         Statement stmt = null;
         try {
