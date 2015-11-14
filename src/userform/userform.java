@@ -31,7 +31,30 @@ public class userform extends Application {
         setupStage();
         setupTabUser();
         //checkInputs();
-        //setuptabAdmin();
+        setuptabAdmin();
+
+    }
+
+    private void setuptabAdmin() {
+        VBox vbox = new VBox();
+        BorderPane borderPane = new BorderPane();
+
+        Button buttonDeleteWorkTable = new Button("kustuta andmed tabelist height_weigth");
+        Button buttonRePopulateWorkTable = new Button("lisa originaalandmed tabelisse height_weigth");
+
+        vbox.setSpacing(3);
+        vbox.setAlignment(Pos.TOP_CENTER);
+        vbox.getChildren().addAll(buttonDeleteWorkTable,buttonRePopulateWorkTable );
+        borderPane.setCenter(vbox );
+        tabUser.setContent(borderPane);
+
+        buttonDeleteWorkTable.setOnAction(event -> {
+
+        });
+
+        buttonDeleteWorkTable.setOnAction(event -> {
+
+        });
 
     }
 

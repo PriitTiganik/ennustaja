@@ -1,6 +1,8 @@
 package regression;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Priit on 31.10.2015.
@@ -8,13 +10,28 @@ import java.util.Arrays;
 public class linear_regression {
     public static void main(String[] args) {
         //int[][] data = insertSampleData();
-        int[][] data = sql.postgresql.select();
-        System.out.println(data[1][1]);
-        //double[] coefs = regression(data);
+        String query = "SELECT id, weight, height from height_weight;";
+        ArrayList<List> dataList = sql.postgresql.select(query);
+        System.out.println((dataList.get(1).get(1)));
 
-        //System.out.println(coefs[0]+","+coefs[1]);
+        int[][] data = insertData(dataList); //kahe veeruga array, kus soltuv muutuja teine
+        System.out.println(data.length);
+        double[] coefs = regression(data);
+
+        System.out.println(coefs[0]+","+coefs[1]);
 
     }
+
+    private static int[][] insertData(ArrayList<List> dataList)  {
+        int[][] data = new int[dataList.size()][];
+        for (int i = 0; i < data.length; i++) {
+            int y = Integer.parseInt((String)dataList.get(i).get(1));
+            int x = Integer.parseInt((String)dataList.get(i).get(2));
+            data[i]= new int[]{x,y};
+        }
+        return data;
+    }
+
     public static double[] test() {
         int[][] data = insertSampleData();
         double[] coefs = regression(data);
