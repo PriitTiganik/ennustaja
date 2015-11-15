@@ -25,6 +25,8 @@ public class userform extends Application {
     int ySize = 500;
     int inputHeight;
     int inputWeight;
+    String inputName;
+    int id;
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
@@ -55,7 +57,7 @@ public class userform extends Application {
         });
 
         buttonRePopulateWorkTable.setOnAction(event -> {
-            sql.postgresql.execute_query("INSERT INTO height_weight SELECT * FROM height_weight_orig;");
+            sql.postgresql.execute_query("INSERT INTO height_weight SELECT height, weight, name FROM height_weight_orig;");
             labelComments.setText("height_weight tabelis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
         });
 
@@ -66,6 +68,10 @@ public class userform extends Application {
         BorderPane borderPane = new BorderPane();
 
         Label labelHello = new Label("Tere");
+        TextField fieldInputName = new TextField();
+        fieldInputName.setText("(sisesta nimi)");
+        fieldInputName.setMaxWidth(100);
+
         Label labelInputHeight = new Label("Sisesta enda pikkus sentimeetrites");
         TextField fieldInputHeight = new TextField();
         fieldInputHeight.setMaxWidth(100);
@@ -75,31 +81,50 @@ public class userform extends Application {
         Button buttonCheck = new Button("Kontrolli andmed");
         Button buttonSave = new Button("Salvesta andmed");
         Button buttonPredict = new Button("Ennusta kaal pikkuse alusel");
+        Button buttonNew = new Button("uus sisestus");
         Label  labelComments= new Label("");
 
 
         vbox.setSpacing(3);
         vbox.setAlignment(Pos.TOP_CENTER);
-        vbox.getChildren().addAll(labelHello, labelInputHeight,fieldInputHeight
-                ,labelInputWeight,fieldInputWeight,buttonCheck,buttonSave,buttonPredict,labelComments);
+        vbox.getChildren().addAll(labelHello,fieldInputName, labelInputHeight,fieldInputHeight
+                ,labelInputWeight,fieldInputWeight,buttonCheck,buttonSave,buttonPredict,buttonNew,labelComments);
         borderPane.setCenter(vbox );
         tabUser.setContent(borderPane);
         buttonCheck.setOnAction(event -> { //kriips ja nool värk. Kui nupule vajutati, siis mis toimub
             String sInputHeight = fieldInputHeight.getText();
             String sInputWeight = fieldInputWeight.getText();
             String checkResult = checkInputs(sInputHeight, sInputWeight);
-
+            inputName = fieldInputName.getText();
             labelComments.setText(checkResult);
+
+            sql.postgresql.execute_query("insert into height_weight (name) VALUES ('"+ inputName+ "');");
+            System.out.println(sql.postgresql.select("Select max(id) from height_weight;").get(0).get(0));
+            //id = (int)sql.postgresql.select("Select max(id) from height_weight;").get(0).get(0);
+
+            labelHello.setText("Tere " + inputName + ", ID "+id);
         });
         buttonSave.setOnAction(event -> {
-            sql.postgresql.execute_query("INSERT INTO height_weight (height, weight) VALUES ("+inputHeight + "," +inputWeight +");");
+            sql.postgresql.execute_query("INSERT INTO height_weight (height, weight) VALUES ("+inputHeight + "," +inputWeight +") where id = " + id+";");
             labelComments.setText("Salvestatud! \n" + "Andmebaasis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
+            //andmed dbst
         });
         buttonPredict.setOnAction(event -> {
             double[] coefs = (regression.linear_regression.calc_coefs());
             int ennustus = (int) (coefs[0]+coefs[1]*inputHeight);
             System.out.println(coefs[0]+","+coefs[1]);
             labelComments.setText("Sinu ennustatav kaal on:" +coefs[0]+"+"+coefs[1]+"*"+inputHeight+"="+ennustus);
+        });
+        buttonNew.setOnAction(event -> {
+            inputHeight= 0;
+            inputWeight= 0;
+            inputName= "";
+            id= 0;
+            labelHello.setText("Tere");
+            fieldInputName.setText("(sisesta nimi)");
+            fieldInputHeight.setText("");
+            fieldInputWeight.setText("");
+            labelComments.setText("");
         });
 
     }

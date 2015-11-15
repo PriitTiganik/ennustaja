@@ -22,7 +22,7 @@ public class linear_regression {
         //int[][] data = insertSampleData();
         String query = "SELECT id, weight, height from height_weight;";
         ArrayList<List> dataList = sql.postgresql.select(query);
-        System.out.println((dataList.get(1).get(1)));
+        //System.out.println((dataList.get(1).get(1)));
         int[][] data = insertData(dataList); //kahe veeruga array, kus soltuv muutuja esimene
         System.out.println(data.length);
         coefs = regression(data);
