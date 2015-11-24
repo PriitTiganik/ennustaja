@@ -1,23 +1,54 @@
 package userform;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.application.Application;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
-import regression.linear_regression;
 
-import java.util.Arrays;
+public class test extends Application{
 
-
-/**
- * Created by priit on 06-Nov-15.
- */
-public class test extends Application {
+///http://stackoverflow.com/questions/17306981/how-do-i-create-a-resize-animation-for-javafx-stage
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        double[] aa = linear_regression.test();
-        System.out.println(Arrays.toString(aa));
+    public void start(final Stage stage) throws Exception {
+
+        stage.setTitle("Area Chart Sample");
+        Group root = new Group();
+        Scene scene  = new Scene(root, 250, 250);
+        stage.setResizable(false);
+
+
+        Timer animTimer = new Timer();
+        animTimer.scheduleAtFixedRate(new TimerTask() {
+
+            int i=0;
+            int j = 0;
+            @Override
+            public void run() {
+                if (i<100 && j <300 &&j>=0 ){
+                    System.out.println(j);
+                    //(-A4*A4+30*A4)/10
+                    j = (-i*i+30*i)/10;
+                    stage.setWidth(stage.getWidth()+j);
+                    //stage.setHeight(stage.getHeight()+j);
+                }
+                else {
+                    this.cancel();
+                }
+
+                i++;
+            }
+        }, 2000, 25);
+
+        stage.setScene(scene);
+        stage.show();
     }
+
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 }

@@ -78,7 +78,6 @@ public class userform extends Application {
         Label  labelInputWeight= new Label("Sisesta enda kaal kilogrammides");
         TextField fieldInputWeight = new TextField();
         fieldInputWeight.setMaxWidth(100);
-        Button buttonCheck = new Button("Kontrolli andmed");
         Button buttonSave = new Button("Salvesta andmed");
         Button buttonPredict = new Button("Ennusta kaal pikkuse alusel");
         Button buttonNew = new Button("uus sisestus");
@@ -88,32 +87,32 @@ public class userform extends Application {
         vbox.setSpacing(3);
         vbox.setAlignment(Pos.TOP_CENTER);
         vbox.getChildren().addAll(labelHello,fieldInputName, labelInputHeight,fieldInputHeight
-                ,labelInputWeight,fieldInputWeight,buttonCheck,buttonSave,buttonPredict,buttonNew,labelComments);
+                ,labelInputWeight,fieldInputWeight,buttonSave,buttonPredict,buttonNew,labelComments);
         borderPane.setCenter(vbox );
         tabUser.setContent(borderPane);
-        buttonCheck.setOnAction(event -> { //kriips ja nool värk. Kui nupule vajutati, siis mis toimub
+
+        buttonSave.setOnAction(event -> {
             String sInputHeight = fieldInputHeight.getText();
             String sInputWeight = fieldInputWeight.getText();
             String checkResult = checkInputs(sInputHeight, sInputWeight);
             inputName = fieldInputName.getText();
-            labelComments.setText(checkResult);
 
-            sql.postgresql.execute_query("insert into height_weight (name) VALUES ('"+ inputName+ "');");
-            System.out.println(sql.postgresql.select("Select max(id) from height_weight;").get(0).get(0));
-            //id = (int)sql.postgresql.select("Select max(id) from height_weight;").get(0).get(0);
 
-            labelHello.setText("Tere " + inputName + ", ID "+id);
-        });
-        buttonSave.setOnAction(event -> {
-            sql.postgresql.execute_query("INSERT INTO height_weight (height, weight) VALUES ("+inputHeight + "," +inputWeight +") where id = " + id+";");
-            labelComments.setText("Salvestatud! \n" + "Andmebaasis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
+            System.out.println(checkResult.substring(0, 10));
+            if (checkResult.substring(0, 10).equals("Sisestasid")){
+
+                sql.postgresql.execute_query("INSERT INTO height_weight (height, weight, name) VALUES ("+inputHeight + "," +inputWeight +",'" + inputName+"' ) ;");
+                labelComments.setText(checkResult + " \n" + "Andmebaasis on ridasid: " + (String)sql.postgresql.select("Select count(id) from height_weight;").get(0).get(0));
+            } else {
+                labelComments.setText(checkResult);
+            }
             //andmed dbst
         });
         buttonPredict.setOnAction(event -> {
             double[] coefs = (regression.linear_regression.calc_coefs());
             int ennustus = (int) (coefs[0]+coefs[1]*inputHeight);
             System.out.println(coefs[0]+","+coefs[1]);
-            labelComments.setText("Sinu ennustatav kaal on:" +coefs[0]+"+"+coefs[1]+"*"+inputHeight+"="+ennustus);
+            labelComments.setText("Sinu ennustatav kaal on:" +String.format("%.2g", coefs[0])+"+"+String.format("%.2g", coefs[1])+"*"+inputHeight+"="+ennustus);
         });
         buttonNew.setOnAction(event -> {
             inputHeight= 0;
@@ -151,7 +150,7 @@ public class userform extends Application {
             return "Pikkus ja kaal peavad olema taiskasvanud inimese omad";
         }
 
-        return "Sisestasid  \n"+sInputHeight+ "\n" + sInputWeight + "\nSalvesta andmed voi vaata, kui tapselt ennustaja su kaalu pikkuse alusel ara arvab" ;
+        return "Sisestasid  \n"+sInputHeight+ "\n" + sInputWeight + "\nVaata, kui tapselt ennustaja su kaalu pikkuse alusel ara arvab.  \n Ennustuses sinu enda kaalu ei arvestata" ;
     }
     public static boolean isInteger(String str) {
         if (str == null) {
