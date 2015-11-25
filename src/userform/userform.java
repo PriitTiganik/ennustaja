@@ -6,6 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.ScatterChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -14,6 +17,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static javafx.scene.paint.Color.*;
 
@@ -153,6 +159,13 @@ public class userform extends Application {
         });
         buttonOpenChart.setOnAction(event -> {
             roomForChartAnimation(ySize+400);
+            try {//http://stackoverflow.com/questions/3342651/how-can-i-delay-a-java-program-for-a-few-seconds
+                Thread.sleep(1000);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+                //Thread.currentThread().interrupt();
+            }
+            borderPane.setBottom(drawChart() );
+            //vbox.getChildren().add(drawChart());
 
         });
         buttonCloseChart.setOnAction(event -> {
@@ -170,6 +183,40 @@ public class userform extends Application {
             labelInputWeight.setText("Sinu kaal kilogrammides: " +inputWeight);
         });
 
+    }
+
+    public ScatterChart<Number,Number> drawChart(){
+
+        final NumberAxis xAxis = new NumberAxis(100, 250, 10);
+        final NumberAxis yAxis = new NumberAxis(40, 140, 10);
+        final ScatterChart<Number,Number> sc = new
+                ScatterChart<Number,Number>(xAxis,yAxis);
+        xAxis.setLabel("Pikkus cm");
+        yAxis.setLabel("Kaal kg");
+        sc.setTitle("Pikkuse ja kaalu seos");
+
+        String query = new String("Select height, weight from height_weight;");
+        System.out.println(query);
+        ArrayList<List> chartData = new ArrayList(sql.postgresql.select(query)) ;
+
+
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("train data");
+        XYChart.Series series2 = new XYChart.Series();
+        series2.setName("kasutaja ");
+
+        for (int i = 0; i < chartData.size(); i++) {
+
+            series1.getData().add(new XYChart.Data(Integer.parseInt((String) chartData.get(i).get(0)), Integer.parseInt((String) chartData.get(i).get(1))));
+
+        }
+        series2.getData().add(new XYChart.Data(inputHeight, inputWeight));
+
+        sc.getData().addAll(series1, series2);
+        //Scene scene  = new Scene(sc, 500, 400);
+        //stage.setScene(scene);
+        //stage.show();
+        return sc;
     }
 
     public static boolean isInteger(String str) {

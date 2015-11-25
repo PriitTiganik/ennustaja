@@ -7,19 +7,35 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class test2  extends Application {
+
+public class test4 extends Application {
 
     @Override public void start(Stage stage) {
         stage.setTitle("Scatter Chart Sample");
-        final NumberAxis xAxis = new NumberAxis(0, 10, 1);
-        final NumberAxis yAxis = new NumberAxis(-100, 500, 100);
+        final NumberAxis xAxis = new NumberAxis(100, 250, 10);
+        final NumberAxis yAxis = new NumberAxis(40, 140, 10);
         final ScatterChart<Number,Number> sc = new
                 ScatterChart<Number,Number>(xAxis,yAxis);
-        xAxis.setLabel("Age (years)");
-        yAxis.setLabel("Returns to date");
-        sc.setTitle("Investment Overview");
+        xAxis.setLabel("Pikkus cm");
+        yAxis.setLabel("Kaal kg");
+        sc.setTitle("Pikkuse ja kaalu seos");
 
+        String query = new String("Select height, weight from height_weight;");
+        System.out.println(query);
+        ArrayList<List> chartData = new ArrayList(sql.postgresql.select(query)) ;
+
+
+        XYChart.Series series1 = new XYChart.Series();
+        for (int i = 0; i < chartData.size(); i++) {
+            System.out.println(((String)chartData.get(i).get(0))+ " "+ Integer.parseInt((String)chartData.get(i).get(1)));
+            series1.getData().add(new XYChart.Data(Integer.parseInt((String)chartData.get(i).get(0)), Integer.parseInt((String)chartData.get(i).get(1))));
+
+        }
+
+/*
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Equities");
         series1.getData().add(new XYChart.Data(4.2, 193.2));
@@ -50,8 +66,8 @@ public class test2  extends Application {
         series2.getData().add(new XYChart.Data(3.5, 323));
         series2.getData().add(new XYChart.Data(9.3, 29.9));
         series2.getData().add(new XYChart.Data(8.1, 287.4));
-
-        sc.getData().addAll(series1, series2);
+*/
+        sc.getData().addAll(series1);
         Scene scene  = new Scene(sc, 500, 400);
         stage.setScene(scene);
         stage.show();
