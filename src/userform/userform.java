@@ -1,6 +1,9 @@
 package userform;
 
+import javafx.animation.*;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -10,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import static javafx.scene.paint.Color.*;
 
@@ -22,9 +26,9 @@ public class userform extends Application {
     Tab tabUser = new Tab();
     Tab tabAdmin = new Tab();
     int xSize = 500;
-    int ySize = 500;
-    int inputHeight;
-    int inputWeight;
+    int ySize = 400;
+    int inputHeight=170;
+    int inputWeight=60;
     String inputName;
     int id;
     @Override
@@ -52,12 +56,17 @@ public class userform extends Application {
         tabAdmin.setContent(borderPane);
 
         buttonDeleteWorkTable.setOnAction(event -> {
-            sql.postgresql.execute_query("delete from height_weight;");
+            String query = new String("delete from height_weight;");
+            System.out.println(query);
+            sql.postgresql.execute_query(query);
+
             labelComments.setText("height_weight tabelis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
         });
 
         buttonRePopulateWorkTable.setOnAction(event -> {
-            sql.postgresql.execute_query("INSERT INTO height_weight SELECT height, weight, name FROM height_weight_orig;");
+            String query = new String("INSERT INTO height_weight SELECT id, height, weight, username, insertdate FROM height_weight_orig;");
+            System.out.println(query);
+            sql.postgresql.execute_query(query);
             labelComments.setText("height_weight tabelis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
         });
 
@@ -72,40 +81,53 @@ public class userform extends Application {
         fieldInputName.setText("(sisesta nimi)");
         fieldInputName.setMaxWidth(100);
 
-        Label labelInputHeight = new Label("Sisesta enda pikkus sentimeetrites");
-        TextField fieldInputHeight = new TextField();
-        fieldInputHeight.setMaxWidth(100);
-        Label  labelInputWeight= new Label("Sisesta enda kaal kilogrammides");
-        TextField fieldInputWeight = new TextField();
-        fieldInputWeight.setMaxWidth(100);
+        Label labelInputHeight = new Label("Sinu pikkus sentimeetrites: "+inputHeight);
+
+        Slider sliderInputHeight = new Slider();
+        sliderInputHeight.setMin(100);
+        sliderInputHeight.setMax(250);
+        sliderInputHeight.setValue(inputHeight);
+        sliderInputHeight.setShowTickLabels(true);
+        sliderInputHeight.setShowTickMarks(true);
+        sliderInputHeight.setMajorTickUnit(50);
+        sliderInputHeight.setMinorTickCount(5);
+
+        Label  labelInputWeight= new Label("Sinu kaal kilogrammides: "+inputWeight);
+        Slider sliderInputWeight = new Slider();
+        sliderInputWeight.setMin(40);
+        sliderInputWeight.setMax(140);
+        sliderInputWeight.setValue(inputWeight);
+        sliderInputWeight.setShowTickLabels(true);
+        sliderInputWeight.setShowTickMarks(true);
+        sliderInputWeight.setMajorTickUnit(20);
+        sliderInputWeight.setMinorTickCount(4);
+
         Button buttonSave = new Button("Salvesta andmed");
         Button buttonPredict = new Button("Ennusta kaal pikkuse alusel");
-        Button buttonNew = new Button("uus sisestus");
+        Button buttonNew = new Button("Uus sisestus");
         Label  labelComments= new Label("");
+        Button buttonOpenChart = new Button("Joonista graafik");
+        Button buttonCloseChart = new Button("Kustuta graafik");
 
 
         vbox.setSpacing(3);
         vbox.setAlignment(Pos.TOP_CENTER);
-        vbox.getChildren().addAll(labelHello,fieldInputName, labelInputHeight,fieldInputHeight
-                ,labelInputWeight,fieldInputWeight,buttonSave,buttonPredict,buttonNew,labelComments);
+        vbox.getChildren().addAll(labelHello,fieldInputName, labelInputHeight,sliderInputHeight
+                ,labelInputWeight,sliderInputWeight,buttonSave,buttonPredict,buttonNew,labelComments, buttonOpenChart,buttonCloseChart);
         borderPane.setCenter(vbox );
         tabUser.setContent(borderPane);
 
         buttonSave.setOnAction(event -> {
-            String sInputHeight = fieldInputHeight.getText();
-            String sInputWeight = fieldInputWeight.getText();
-            String checkResult = checkInputs(sInputHeight, sInputWeight);
+
             inputName = fieldInputName.getText();
+            String query = new String("INSERT INTO height_weight (height, weight, username) VALUES ("+inputHeight + "," +inputWeight +",'" + inputName+"' ) ;");
+            System.out.println(query);
+            sql.postgresql.execute_query(query);
 
+            query = "Select count(id) from height_weight;";
+            System.out.println(query);
+            labelComments.setText("Salvestati " + inputHeight + "cm ja " + inputWeight + "kg. " + "Andmebaasis on ridasid: " + (String) sql.postgresql.select(query).get(0).get(0));
 
-            System.out.println(checkResult.substring(0, 10));
-            if (checkResult.substring(0, 10).equals("Sisestasid")){
-
-                sql.postgresql.execute_query("INSERT INTO height_weight (height, weight, name) VALUES ("+inputHeight + "," +inputWeight +",'" + inputName+"' ) ;");
-                labelComments.setText(checkResult + " \n" + "Andmebaasis on ridasid: " + (String)sql.postgresql.select("Select count(id) from height_weight;").get(0).get(0));
-            } else {
-                labelComments.setText(checkResult);
-            }
             //andmed dbst
         });
         buttonPredict.setOnAction(event -> {
@@ -115,43 +137,41 @@ public class userform extends Application {
             labelComments.setText("Sinu ennustatav kaal on:" +String.format("%.2g", coefs[0])+"+"+String.format("%.2g", coefs[1])+"*"+inputHeight+"="+ennustus);
         });
         buttonNew.setOnAction(event -> {
-            inputHeight= 0;
-            inputWeight= 0;
+            inputHeight= 170;
+            inputWeight= 60;
             inputName= "";
             id= 0;
             labelHello.setText("Tere");
             fieldInputName.setText("(sisesta nimi)");
-            fieldInputHeight.setText("");
-            fieldInputWeight.setText("");
+
+            labelInputHeight.setText("Sinu pikkus sentimeetrites: "+inputHeight);
+            labelInputWeight.setText("Sinu kaal kilogrammides: "+inputWeight);
+            sliderInputHeight.setValue(inputHeight);
+            sliderInputWeight.setValue(inputWeight);
+
             labelComments.setText("");
+        });
+        buttonOpenChart.setOnAction(event -> {
+            roomForChartAnimation(ySize+400);
+
+        });
+        buttonCloseChart.setOnAction(event -> {
+            roomForChartAnimation(ySize);
+
+        });
+        sliderInputHeight.valueProperty().addListener((observable, vanaVaartus, uusVaartus) -> {
+            //http://i200.itcollege.ee/javafx-Slider
+            inputHeight = uusVaartus.intValue();
+            labelInputHeight.setText("Sinu pikkus sentimeetrites: " +inputHeight);
+        });
+        sliderInputWeight.valueProperty().addListener((observable, vanaVaartus, uusVaartus) -> {
+            //http://i200.itcollege.ee/javafx-Slider
+            inputWeight = uusVaartus.intValue();
+            labelInputWeight.setText("Sinu kaal kilogrammides: " +inputWeight);
         });
 
     }
 
-    private String checkInputs(String sInputHeight, String sInputWeight) {
-//kontrollib, kas sisesestus on normaalses vahemikus,
-// kas on v]imalik intiks konvertida
-        //ja tagastab tulemuse voi veateate tekstina
-        if (isInteger(sInputHeight)) {
-            inputHeight = Integer.parseInt(sInputHeight);
-        } else {
-            return "Pikkus pole taisarv";
-        }
-
-        if (isInteger(sInputWeight)) {
-            inputWeight = Integer.parseInt(sInputWeight);
-        } else {
-            return "Kaal pole taisarv";
-        }
-
-        if (inputHeight>250 | inputHeight < 130 | inputHeight>300 | inputWeight <30){
-            inputHeight = 0;
-            inputHeight = 0;
-            return "Pikkus ja kaal peavad olema taiskasvanud inimese omad";
-        }
-
-        return "Sisestasid  \n"+sInputHeight+ "\n" + sInputWeight + "\nVaata, kui tapselt ennustaja su kaalu pikkuse alusel ara arvab.  \n Ennustuses sinu enda kaalu ei arvestata" ;
-    }
     public static boolean isInteger(String str) {
         if (str == null) {
             return false;
@@ -176,6 +196,37 @@ public class userform extends Application {
         return true;
     }
 
+    private void roomForChartAnimation(int heightInput){
+        //http://www.java2s.com/Tutorials/Java/JavaFX/1010__JavaFX_Timeline_Animation.htm
+        //http://docs.oracle.com/javafx/2/animations/basics.htm
+        Timeline timeline;
+        //create a timeline for moving the circle
+        timeline = new Timeline();
+        timeline.setCycleCount(1);
+        timeline.setAutoReverse(true);
+
+        //create a keyValue with factory: scaling the circle 2times
+        KeyValue keyValueX1 = new KeyValue(stage.minHeightProperty(), heightInput, Interpolator.EASE_OUT);
+        KeyValue keyValueX2 = new KeyValue(stage.maxHeightProperty(), heightInput, Interpolator.EASE_OUT);
+
+        //create a keyFrame, the keyValue is reached at time 2s
+        Duration duration = Duration.millis(1000);
+        //one can add a specific action when the keyframe is reached
+        EventHandler onFinished = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent t) {
+                //reset counter
+               // i = 0;
+            }
+        };
+
+        KeyFrame keyFrame = new KeyFrame(duration, onFinished,keyValueX1,keyValueX2 );
+
+        //add the keyframe to the timeline
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.play();
+
+    }
+
     private void setupStage() {
         stackPane = new StackPane();
         TabPane tabPane = new TabPane();
@@ -186,6 +237,7 @@ public class userform extends Application {
         tabPane.getTabs().add(tabAdmin);
 
         Scene scene= new Scene(tabPane, xSize, ySize);
+        stage.setY(10);
         stage.setScene(scene);
         stage.show();
         stage.setOnCloseRequest(event -> {System.exit(0);});//lõpetab programmi, kui sulgeme akna
