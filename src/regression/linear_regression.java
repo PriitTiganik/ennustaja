@@ -12,15 +12,15 @@ public class linear_regression {
      static double[] coefs;
 
     public static void main(String[] args) {
-        calc_coefs();
+        //calc_coefs(0);
 
         System.out.println(coefs[0]+","+coefs[1]);
     }
 
-    public static double[] calc_coefs() {
+    public static double[] calc_coefs(int id) {
 
         //int[][] data = insertSampleData();
-        String query = "SELECT id, weight, height from height_weight;";
+        String query = "SELECT id, weight, height from height_weight where id !="+id+" ;";
         ArrayList<List> dataList = sql.postgresql.select(query);
         //System.out.println((dataList.get(1).get(1)));
         int[][] data = insertData(dataList); //kahe veeruga array, kus soltuv muutuja esimene

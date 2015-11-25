@@ -35,8 +35,9 @@ public class userform extends Application {
     int ySize = 400;
     int inputHeight=170;
     int inputWeight=60;
+    int ennustus =0;
     String inputName;
-    int id;
+    int id=0;
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
@@ -90,23 +91,25 @@ public class userform extends Application {
         Label labelInputHeight = new Label("Sinu pikkus sentimeetrites: "+inputHeight);
 
         Slider sliderInputHeight = new Slider();
-        sliderInputHeight.setMin(100);
-        sliderInputHeight.setMax(250);
+        sliderInputHeight.setMin(150);
+        sliderInputHeight.setMax(210);
         sliderInputHeight.setValue(inputHeight);
         sliderInputHeight.setShowTickLabels(true);
         sliderInputHeight.setShowTickMarks(true);
-        sliderInputHeight.setMajorTickUnit(50);
+        sliderInputHeight.setMajorTickUnit(10);
         sliderInputHeight.setMinorTickCount(5);
+        sliderInputHeight.setMaxWidth(xSize-100);
 
         Label  labelInputWeight= new Label("Sinu kaal kilogrammides: "+inputWeight);
         Slider sliderInputWeight = new Slider();
         sliderInputWeight.setMin(40);
-        sliderInputWeight.setMax(140);
+        sliderInputWeight.setMax(120);
         sliderInputWeight.setValue(inputWeight);
         sliderInputWeight.setShowTickLabels(true);
         sliderInputWeight.setShowTickMarks(true);
-        sliderInputWeight.setMajorTickUnit(20);
-        sliderInputWeight.setMinorTickCount(4);
+        sliderInputWeight.setMajorTickUnit(10);
+        sliderInputWeight.setMinorTickCount(5);
+        sliderInputWeight.setMaxWidth(xSize-100);
 
         Button buttonSave = new Button("Salvesta andmed");
         Button buttonPredict = new Button("Ennusta kaal pikkuse alusel");
@@ -130,23 +133,32 @@ public class userform extends Application {
             System.out.println(query);
             sql.postgresql.execute_query(query);
 
-            query = "Select count(id) from height_weight;";
+            query = "Select max(id), count(id) from height_weight;";
             System.out.println(query);
-            labelComments.setText("Salvestati " + inputHeight + "cm ja " + inputWeight + "kg. " + "Andmebaasis on ridasid: " + (String) sql.postgresql.select(query).get(0).get(0));
+            id = Integer.parseInt((String) sql.postgresql.select(query).get(0).get(0));
+            int dbCount =Integer.parseInt((String) sql.postgresql.select(query).get(0).get(1));
+            labelComments.setText("Salvestati " + inputHeight + "cm ja " + inputWeight + "kg. " + "Andmebaasis on ridasid: " + dbCount) ;
 
             //andmed dbst
+
+
         });
         buttonPredict.setOnAction(event -> {
-            double[] coefs = (regression.linear_regression.calc_coefs());
-            int ennustus = (int) (coefs[0]+coefs[1]*inputHeight);
-            System.out.println(coefs[0]+","+coefs[1]);
-            labelComments.setText("Sinu ennustatav kaal on:" +String.format("%.2g", coefs[0])+"+"+String.format("%.2g", coefs[1])+"*"+inputHeight+"="+ennustus);
+            if (id==0){
+                labelComments.setText("Enne joonistamist salvesta enda andmed");
+            } else {
+                double[] coefs = (regression.linear_regression.calc_coefs(id));
+                ennustus = (int) (coefs[0] + coefs[1] * inputHeight);
+                System.out.println(coefs[0] + "," + coefs[1]);
+                labelComments.setText("Sinu ennustatav kaal on:" + String.format("%.2g", coefs[0]) + "+" + String.format("%.2g", coefs[1]) + "*" + inputHeight + "=" + ennustus);
+            }
         });
         buttonNew.setOnAction(event -> {
             inputHeight= 170;
             inputWeight= 60;
             inputName= "";
             id= 0;
+            ennustus =0;
             labelHello.setText("Tere");
             fieldInputName.setText("(sisesta nimi)");
 
@@ -156,17 +168,15 @@ public class userform extends Application {
             sliderInputWeight.setValue(inputWeight);
 
             labelComments.setText("");
+            buttonCloseChart.fire();
         });
         buttonOpenChart.setOnAction(event -> {
-            roomForChartAnimation(ySize+400);
-            try {//http://stackoverflow.com/questions/3342651/how-can-i-delay-a-java-program-for-a-few-seconds
-                Thread.sleep(1000);                 //1000 milliseconds is one second.
-            } catch(InterruptedException ex) {
-                //Thread.currentThread().interrupt();
+            if (id==0){
+                labelComments.setText("Enne joonistamist salvesta enda andmed");
+            } else {
+                roomForChartAnimation(ySize + 400);
+                borderPane.setBottom(drawChart());
             }
-            borderPane.setBottom(drawChart() );
-            //vbox.getChildren().add(drawChart());
-
         });
         buttonCloseChart.setOnAction(event -> {
             roomForChartAnimation(ySize);
@@ -186,33 +196,50 @@ public class userform extends Application {
     }
 
     public ScatterChart<Number,Number> drawChart(){
+        String query = new String("select max(height), min(height) from height_weight;");
+        System.out.println(query);
+        ArrayList<List> maxData = new ArrayList(sql.postgresql.select(query)) ;
 
-        final NumberAxis xAxis = new NumberAxis(100, 250, 10);
-        final NumberAxis yAxis = new NumberAxis(40, 140, 10);
+        final NumberAxis xAxis = new NumberAxis(roundUpDown(Integer.parseInt((String) (maxData.get(0).get(1))), -10),
+                roundUpDown(Integer.parseInt((String)(maxData.get(0).get(0)) ),10), 10);
+
+         query = ("select max(weight), min(weight) from height_weight;");
+        System.out.println(query);
+        maxData = (sql.postgresql.select(query)) ;
+
+        final NumberAxis yAxis = new NumberAxis(roundUpDown(Integer.parseInt((String)(maxData.get(0).get(1))),-10),
+                roundUpDown(Integer.parseInt((String)(maxData.get(0).get(0)) ),10), 10);
+
         final ScatterChart<Number,Number> sc = new
                 ScatterChart<Number,Number>(xAxis,yAxis);
         xAxis.setLabel("Pikkus cm");
         yAxis.setLabel("Kaal kg");
         sc.setTitle("Pikkuse ja kaalu seos");
 
-        String query = new String("Select height, weight from height_weight;");
+        query = ("Select height, weight from height_weight where id != "+id+";");
         System.out.println(query);
         ArrayList<List> chartData = new ArrayList(sql.postgresql.select(query)) ;
-
 
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("train data");
         XYChart.Series series2 = new XYChart.Series();
-        series2.setName("kasutaja ");
+        series2.setName(inputName+ " tegelik");
 
         for (int i = 0; i < chartData.size(); i++) {
-
-            series1.getData().add(new XYChart.Data(Integer.parseInt((String) chartData.get(i).get(0)), Integer.parseInt((String) chartData.get(i).get(1))));
-
+            series1.getData().add(new XYChart.Data(Integer.parseInt((String) chartData.get(i).get(0))+Math.random()/2,
+                    Integer.parseInt((String) chartData.get(i).get(1))+Math.random()/2));
         }
-        series2.getData().add(new XYChart.Data(inputHeight, inputWeight));
-
-        sc.getData().addAll(series1, series2);
+        query = "Select height, weight from height_weight where id = "+id+";";
+        chartData =sql.postgresql.select(query);
+        series2.getData().add(new XYChart.Data(Integer.parseInt((String) chartData.get(0).get(0)), Integer.parseInt((String) chartData.get(0).get(1))));
+        if (ennustus!=0) {
+            XYChart.Series series3 = new XYChart.Series();
+            series3.setName(inputName + " ennustus");
+            series3.getData().add(new XYChart.Data(inputHeight, ennustus));
+            sc.getData().addAll(series1, series2, series3);
+        } else {
+            sc.getData().addAll(series1, series2);
+        }
         //Scene scene  = new Scene(sc, 500, 400);
         //stage.setScene(scene);
         //stage.show();
@@ -243,6 +270,22 @@ public class userform extends Application {
         return true;
     }
 
+    public static int roundUpDown(int number, int by){
+        int result=number;
+        if(by>0){
+            result =number+(by-number%by);
+        }else if(by <0){
+            if(number%by==0){
+                number--;
+                result = number-number%by;
+            }else {
+                result =number-number%by;
+            }
+        }else {
+            return result;
+        }
+        return result;
+    }
     private void roomForChartAnimation(int heightInput){
         //http://www.java2s.com/Tutorials/Java/JavaFX/1010__JavaFX_Timeline_Animation.htm
         //http://docs.oracle.com/javafx/2/animations/basics.htm
