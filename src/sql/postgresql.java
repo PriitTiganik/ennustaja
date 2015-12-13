@@ -57,6 +57,7 @@ public class postgresql {
                 }*/
                 rs.close();
                 stmt.close();
+                c.close();
                 return dataRows;
 
             } catch (Exception e) { //kui ei ole veel yhendust avatud, siis avab. Kui ei onnestu, siis error ja exit

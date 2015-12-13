@@ -1,5 +1,6 @@
 package userform;
 
+import graphics.Userbutton;
 import javafx.animation.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -111,13 +112,12 @@ public class userform extends Application {
         sliderInputWeight.setMinorTickCount(5);
         sliderInputWeight.setMaxWidth(xSize-100);
 
-        Button buttonSave = new Button("Salvesta andmed");
-        Button buttonPredict = new Button("Ennusta kaal pikkuse alusel");
-        Button buttonNew = new Button("Uus sisestus");
+        Userbutton buttonSave = new Userbutton("Salvesta andmed");
+        Userbutton buttonPredict = new Userbutton("Ennusta kaal pikkuse alusel");
+        Userbutton buttonNew = new Userbutton("Uus sisestus");
         Label  labelComments= new Label("");
-        Button buttonOpenChart = new Button("Joonista graafik");
-        Button buttonCloseChart = new Button("Kustuta graafik");
-
+        Userbutton buttonOpenChart = new Userbutton("Joonista graafik");
+        Userbutton buttonCloseChart = new Userbutton("Kustuta graafik");
 
         vbox.setSpacing(3);
         vbox.setAlignment(Pos.TOP_CENTER);
@@ -126,8 +126,11 @@ public class userform extends Application {
         borderPane.setCenter(vbox );
         tabUser.setContent(borderPane);
 
-        buttonSave.setOnAction(event -> {
+        buttonOpenChart.setClicked();
+        buttonPredict.setClicked();
+        buttonCloseChart.setClicked();
 
+        buttonSave.setOnAction(event -> {
             inputName = fieldInputName.getText();
             String query = new String("INSERT INTO height_weight (height, weight, username) VALUES ("+inputHeight + "," +inputWeight +",'" + inputName+"' ) ;");
             System.out.println(query);
@@ -139,10 +142,13 @@ public class userform extends Application {
             int dbCount =Integer.parseInt((String) sql.postgresql.select(query).get(0).get(1));
             labelComments.setText("Salvestati " + inputHeight + "cm ja " + inputWeight + "kg. " + "Andmebaasis on ridasid: " + dbCount) ;
 
+            buttonSave.setClicked();
+            buttonPredict.setClicked();
+
+
             //andmed dbst
-
-
         });
+
         buttonPredict.setOnAction(event -> {
             if (id==0){
                 labelComments.setText("Enne joonistamist salvesta enda andmed");
@@ -151,6 +157,8 @@ public class userform extends Application {
                 ennustus = (int) (coefs[0] + coefs[1] * inputHeight);
                 System.out.println(coefs[0] + "," + coefs[1]);
                 labelComments.setText("Sinu ennustatav kaal on:" + String.format("%.2g", coefs[0]) + "+" + String.format("%.2g", coefs[1]) + "*" + inputHeight + "=" + ennustus);
+                buttonOpenChart.setClickedEnable();
+
             }
         });
         buttonNew.setOnAction(event -> {
@@ -177,23 +185,32 @@ public class userform extends Application {
                 roomForChartAnimation(ySize + 400);
                 borderPane.setBottom(drawChart());
             }
+            buttonCloseChart.setClicked();
+            buttonOpenChart.setClicked();
         });
         buttonCloseChart.setOnAction(event -> {
             roomForChartAnimation(ySize);
-
+            buttonCloseChart.setClicked();
+            buttonOpenChart.setClicked();
         });
+
         sliderInputHeight.valueProperty().addListener((observable, vanaVaartus, uusVaartus) -> {
             //http://i200.itcollege.ee/javafx-Slider
             inputHeight = uusVaartus.intValue();
-            labelInputHeight.setText("Sinu pikkus sentimeetrites: " +inputHeight);
+            labelInputHeight.setText("Sinu pikkus sentimeetrites: " + inputHeight);
+            buttonSave.setClickedEnable();
         });
+
         sliderInputWeight.valueProperty().addListener((observable, vanaVaartus, uusVaartus) -> {
             //http://i200.itcollege.ee/javafx-Slider
             inputWeight = uusVaartus.intValue();
             labelInputWeight.setText("Sinu kaal kilogrammides: " +inputWeight);
+            buttonSave.setDisable(false);
+            buttonSave.setClickedEnable();
         });
 
     }
+
 
     public ScatterChart<Number,Number> drawChart(){
         String query = new String("select max(height), min(height) from height_weight;");
