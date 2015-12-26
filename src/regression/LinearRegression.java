@@ -1,5 +1,7 @@
 package regression;
 
+import sql.Postgresql;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,21 +9,20 @@ import java.util.List;
 /**
  * Created by Priit on 31.10.2015.
  */
-public class linear_regression {
+public class LinearRegression {
 
-     static double[] coefs;
 
-    public static void main(String[] args) {
-        //calc_coefs(0);
 
-        System.out.println(coefs[0]+","+coefs[1]);
+    public LinearRegression(){
+        //pole vaja midagi teha
     }
 
-    public static double[] calc_coefs(int id) {
 
-        //int[][] data = insertSampleData();
+    public static double[] calc_coefs(int id) {
+        double[] coefs;
+        Postgresql sql = new Postgresql();
         String query = "SELECT id, weight, height from height_weight where id !="+id+" ;";
-        ArrayList<List> dataList = sql.postgresql.select(query);
+        ArrayList<List> dataList = sql.select(query);
         //System.out.println((dataList.get(1).get(1)));
         int[][] data = insertData(dataList); //kahe veeruga array, kus soltuv muutuja esimene
         System.out.println(data.length);
@@ -40,7 +41,7 @@ public class linear_regression {
         return data;
     }
 
-    public static double[] test() {
+    private static double[] test() { //for testing
         int[][] data = insertSampleData();
         double[] coefs = regression(data);
         return coefs;

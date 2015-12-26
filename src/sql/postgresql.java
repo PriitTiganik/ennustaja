@@ -6,7 +6,6 @@ package sql;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 //http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
@@ -15,25 +14,18 @@ import java.util.List;
 
 //https://www.youtube.com/watch?v=32IgeS5xaxM
 
-public class postgresql {
+public class Postgresql {
     static Connection c = null;
-    public static void main(String args[]) {
-
-        connect();
-        //insert();
-        //delete();
-        //select_example();
-        //select();
-
+    public Postgresql(){
+        //connect(); //pole vaja midagi teha
     }
 
-
     public static ArrayList<List> select(String query) {
+        connect();
         Statement stmt = null;
         for (int i = 0; i < 2; i++) {
             try {
                 c.setAutoCommit(false);
-                stmt = c.createStatement();
                 stmt = c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE); //et mitu korda rs extiga labi kaia peab olema scrollable
                 ResultSet rs = stmt.executeQuery(query);
 
@@ -47,14 +39,6 @@ public class postgresql {
                     }
                     dataRows.add(dataRow);
                 }
-                //System.out.println((a));
-                /*int[][] resultTable = new int[a.size()][];
-                int j = 0;
-                rs.beforeFirst();//scrollib rs algusesse
-                while (rs.next()) {
-                    resultTable[j] = new int[]{rs.getInt("id"), rs.getInt("height"), rs.getInt("weight")};
-                    j++;
-                }*/
                 rs.close();
                 stmt.close();
                 c.close();
@@ -69,33 +53,6 @@ public class postgresql {
             System.out.println("Operation done successfully");
         }
         return null;
-    }
-
-    private static void select_example()  {
-
-        Statement stmt = null;
-        try {
-            c.setAutoCommit(false);
-
-            stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * from height_weight;" );
-            while ( rs.next() ) {
-                int id = rs.getInt("id");
-                String  name = rs.getString("name");
-                int weight  = rs.getInt("weight");
-                int height  = rs.getInt("height");
-                System.out.println("name = "+ name);
-                System.out.println( "weight = " + weight );
-                System.out.println( "height = " + height );
-                System.out.println();
-            }
-            rs.close();
-            stmt.close();
-        } catch ( Exception e ) {
-            System.err.println( e.getClass().getName()+": "+ e.getMessage() );
-            System.exit(0);
-        }
-        System.out.println("Operation done successfully");
     }
 
     public static void execute_query(String query) {
@@ -116,7 +73,8 @@ public class postgresql {
 
     }
 
-    private static void insert() {
+    private static void insert() { //pole kasutatud
+        connect();
         Statement stmt = null;
         try {
 
