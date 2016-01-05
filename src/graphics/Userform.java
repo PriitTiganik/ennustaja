@@ -18,6 +18,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import regression.LinearRegression;
+import sql.Postgresql;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +27,11 @@ import java.util.List;
 /**
  * Created by priit on 25-Dec-15.
  */
-public class Userform extends Application {
+public class Userform {
     Stage stage;
     StackPane stackPane;
     Tab tabUser = new Tab();
     Tab tabAdmin = new Tab();
-
-
     int xSize = 500;
     int ySize = 400;
     int inputHeight=170;
@@ -40,11 +40,11 @@ public class Userform extends Application {
     String inputName;
     int id=0;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Stage stage = primaryStage;
-    }
-/*    public Userform (String name){
+    Postgresql sql = new Postgresql();
+    LinearRegression linearRegression = new LinearRegression();
+
+    public Userform (Stage stage,String name){
+        this.stage= stage;
         setupStage();
         setupTabUser();
         setuptabAdmin();
@@ -52,14 +52,13 @@ public class Userform extends Application {
 
 
 
-
-    public void setuptabAdmin() {
+    private void setuptabAdmin() {
         VBox vbox = new VBox();
         BorderPane borderPane = new BorderPane();
 
         Button buttonDeleteWorkTable = new Button("kustuta andmed tabelist height_weigth");
         Button buttonRePopulateWorkTable = new Button("lisa originaalandmed tabelisse height_weigth");
-        Label labelComments= new Label("");
+        Label  labelComments= new Label("");
 
         vbox.setSpacing(3);
         vbox.setAlignment(Pos.TOP_CENTER);
@@ -67,24 +66,25 @@ public class Userform extends Application {
         borderPane.setCenter(vbox );
         tabAdmin.setContent(borderPane);
 
+
         buttonDeleteWorkTable.setOnAction(event -> {
             String query = new String("delete from height_weight;");
             System.out.println(query);
-            sql.postgresql.execute_query(query);
+            sql.execute_query(query);
 
-            labelComments.setText("height_weight tabelis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
+            labelComments.setText("height_weight tabelis on ridasid:" + sql.select("Select count(id) from height_weight;"));
         });
 
         buttonRePopulateWorkTable.setOnAction(event -> {
             String query = new String("INSERT INTO height_weight SELECT id, height, weight, username, insertdate FROM height_weight_orig;");
             System.out.println(query);
-            sql.postgresql.execute_query(query);
-            labelComments.setText("height_weight tabelis on ridasid:" + sql.postgresql.select("Select count(id) from height_weight;"));
+            sql.execute_query(query);
+            labelComments.setText("height_weight tabelis on ridasid:" + sql.select("Select count(id) from height_weight;"));
         });
 
     }
 
-    public void setupTabUser() {
+    private void setupTabUser() {
         VBox vbox = new VBox();
         BorderPane borderPane = new BorderPane();
 
@@ -138,12 +138,12 @@ public class Userform extends Application {
             inputName = fieldInputName.getText();
             String query = new String("INSERT INTO height_weight (height, weight, username) VALUES ("+inputHeight + "," +inputWeight +",'" + inputName+"' ) ;");
             System.out.println(query);
-            sql.postgresql.execute_query(query);
+            sql.execute_query(query);
 
             query = "Select max(id), count(id) from height_weight;";
             System.out.println(query);
-            id = Integer.parseInt((String) sql.postgresql.select(query).get(0).get(0));
-            int dbCount =Integer.parseInt((String) sql.postgresql.select(query).get(0).get(1));
+            id = Integer.parseInt((String) sql.select(query).get(0).get(0));
+            int dbCount =Integer.parseInt((String) sql.select(query).get(0).get(1));
             labelComments.setText("Salvestati " + inputHeight + "cm ja " + inputWeight + "kg. " + "Andmebaasis on ridasid: " + dbCount) ;
 
             buttonSave.setClicked();
@@ -157,7 +157,7 @@ public class Userform extends Application {
             if (id==0){
                 labelComments.setText("Enne joonistamist salvesta enda andmed");
             } else {
-                double[] coefs = (regression.linear_regression.calc_coefs(id));
+                double[] coefs = (linearRegression.calc_coefs(id));
                 ennustus = (int) (coefs[0] + coefs[1] * inputHeight);
                 System.out.println(coefs[0] + "," + coefs[1]);
                 labelComments.setText("Sinu ennustatav kaal on:" + String.format("%.2g", coefs[0]) + "+" + String.format("%.2g", coefs[1]) + "*" + inputHeight + "=" + ennustus);
@@ -219,14 +219,14 @@ public class Userform extends Application {
     public ScatterChart<Number,Number> drawChart(){
         String query = new String("select max(height), min(height) from height_weight;");
         System.out.println(query);
-        ArrayList<List> maxData = new ArrayList(sql.postgresql.select(query)) ;
+        ArrayList<List> maxData = new ArrayList(sql.select(query)) ;
 
         final NumberAxis xAxis = new NumberAxis(roundUpDown(Integer.parseInt((String) (maxData.get(0).get(1))), -10),
                 roundUpDown(Integer.parseInt((String)(maxData.get(0).get(0)) ),10), 10);
 
         query = ("select max(weight), min(weight) from height_weight;");
         System.out.println(query);
-        maxData = (sql.postgresql.select(query)) ;
+        maxData = (sql.select(query)) ;
 
         final NumberAxis yAxis = new NumberAxis(roundUpDown(Integer.parseInt((String)(maxData.get(0).get(1))),-10),
                 roundUpDown(Integer.parseInt((String)(maxData.get(0).get(0)) ),10), 10);
@@ -239,7 +239,7 @@ public class Userform extends Application {
 
         query = ("Select height, weight from height_weight where id != "+id+";");
         System.out.println(query);
-        ArrayList<List> chartData = new ArrayList(sql.postgresql.select(query)) ;
+        ArrayList<List> chartData = new ArrayList(sql.select(query)) ;
 
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("train data");
@@ -251,7 +251,7 @@ public class Userform extends Application {
                     Integer.parseInt((String) chartData.get(i).get(1))+Math.random()/2));
         }
         query = "Select height, weight from height_weight where id = "+id+";";
-        chartData =sql.postgresql.select(query);
+        chartData =sql.select(query);
         series2.getData().add(new XYChart.Data(Integer.parseInt((String) chartData.get(0).get(0)), Integer.parseInt((String) chartData.get(0).get(1))));
         if (ennustus!=0) {
             XYChart.Series series3 = new XYChart.Series();
@@ -307,7 +307,7 @@ public class Userform extends Application {
         }
         return result;
     }
-    public void roomForChartAnimation(int heightInput){
+    private void roomForChartAnimation(int heightInput){
         //http://www.java2s.com/Tutorials/Java/JavaFX/1010__JavaFX_Timeline_Animation.htm
         //http://docs.oracle.com/javafx/2/animations/basics.htm
         Timeline timeline;
@@ -338,7 +338,7 @@ public class Userform extends Application {
 
     }
 
-    public void setupStage() {
+    private void setupStage() {
         stackPane = new StackPane();
         TabPane tabPane = new TabPane();
         tabUser.setText("User");
@@ -351,7 +351,6 @@ public class Userform extends Application {
         stage.setY(10);
         stage.setScene(scene);
         stage.show();
-        stage.setOnCloseRequest(event -> {System.exit(0);});//lõpetab programmi, kui sulgeme akna
+        stage.setOnCloseRequest(event -> {System.exit(0);});//l?petab programmi, kui sulgeme akna
     }
-    */
 }
