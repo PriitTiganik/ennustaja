@@ -1,26 +1,20 @@
-package graphics;
+package View;
 
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseEvent;
 
-/**
- * Created by priit on 12-Dec-15.
- */
 public class Userbutton extends Button {
 
-
     public Userbutton (String name){
-        super(); //k'ivitab Buttoni
+        super(); //initiates Button
         createButton(name);
     }
 
     private void createButton(String name) {
-        setText(name);
+        setText(name);//buttan text
         setMaxWidth(200);
 
-        setStyle(" -fx-base: #b6e7c9;");
+        setStyle(" -fx-base: #b6e7c9;"); //button colort
 
         //http://docs.oracle.com/javafx/2/ui_controls/button.htm
         DropShadow shadow = new DropShadow();
@@ -32,23 +26,19 @@ public class Userbutton extends Button {
             setStyle(" -fx-base: #b6e7c9;");
             setEffect(null);
         });
-        //setOnAction();
-
-
     }
 
-    public void setClicked() {
+    public void setClicked() { //changes disabled property to opposite
         if(isDisabled()) {
             setDisabled(false);
         } else {
             setDisabled(true);
         }
-        System.out.println(isDisabled());
     }
     public void setClickedEnable() {
         setDisabled(false);
-    }
+    } //sets not disabled
     public void setClickedDisable() {
         setDisabled(true);
-    }
+    } //sets disabled
 }

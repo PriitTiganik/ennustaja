@@ -1,32 +1,22 @@
 # ennustaja
-Priit Tiganik
+Autor: Priit Tiganik
 
-## Projekti plaan 
+### Projekti kirjeldus
+Antud Java programm on loodud peamiste programmeerimispõhimõtete harjutamiseks Java ja JavaFX näitel. 
 
-### Esmane plaan 23.10.2015 
+Kasutajale kuvatakse vorm, millel palutakse valida enda pikkus ja kaal. Peale andmete salvestamist pakutakse kasutajale võimalust enda pikkuse alusel ennustada kaal. Programm võtab seejärel ühendus PostgeSQL andmebaasiga, toob sealt sinna varem salvestatud pikkuse ja kaalu andmed (originaalis 200 Hong-Kongi kodaniku andmed), arvutab nende põhjal regressioonimudeli ning lõpuks ennustab selle alusel kasutajale tema kaalu. 
 
-*Kuidas kasutajakogemus välja näeb?*
-- kasutaja käivitab programmi
-- aknas palutakse tal sisestada enda pikkus, peale mida kuvatakse talle programmi poolt ennustus tema kaalu kohta
-- kasutaja sisestab ka enda kaalu, peale mida ennustust muduetakse vastavalt sellele, kuidas lisarida algandmestikus ennustust täpsemaks tegi
+Ennustusele järgnevalt on kasutajal võimalus joonistada graafik modelleerimises kasutatud andmetega. Selle pealt on eraldi näha algandmed, kasutaja tegelik kaal ning see kaal, mille regressioonimudel kasutajale ennustas.
 
-*Mida programm teeb?*
-- käivitamisel võtab ühendus postgresqli andmebaasiga ja toob sealt viimase treenitud mudeli ja seal olevad treeningandmed
-- viskab akna lahti, küsib kasutajalt pikkust.
-- kasutaja sisestab pikkuse, misjärel arvutatakse talle eelmise mudeli alusel välja kaal
-- kasutaja on vales kaalus pettunud, kui sisestab siiski oma tegeliku kaalu
-- pikkus ja kaal lisatakse Javasse salvestatud andmetele ja ka andmebaasi
-- lisandunud andmetega treenitakse uus, loodetavasti täpsem mudel
-- mudel salvestatakse andmebaasi
+Mida rohkem kogutakse lähedase kehaehitusega kasutajaid, seda täpsemaks prognoos muutub.
 
-*Kui peamine teema on ära tehtud, saab antud kontseptsiooni edasi arendada, näiteks:*
-- kuvada andmete sisestajal statistikat, kuidas tema andmetest mudel täpsemaks muutus
-- siduda mudeli arendus R-iga
-- mitte modelleerida kaalu vaid midagi keerulisemat
+Projekti on sisse jäetud "Admin" leht, mille abil on võimalik kasutaja poolt sisestatud andmed nullida.
 
+### Kasutusjuhend
+ 1. vali enda pikkus sentimeetrites
+ 2. vali enda kaal kilogrammides
+ 3. vajuta "Salvesta andmed"
+ 4. vajuta "Ennusta kaal pikkuse alusel". Kui täppi programm paneb? 
+ 5. vajuta "Joonista graafik". Kas treeningandmed kajastavad sinu pikkust ja kaalu?
+ 6. vajuta "Uus sisestus" ning lisa veel paar andmerida. Kas ennustus muutub täpsemaks?
 
-*Kuidas teha?*
-*vorm*
-peale kasutaja andmete sisestamist ja andmete saatmist andmebaasi tuuakse sama kasutaja andmed ka vormile tagasi. Nii pidavat ägedam olema.
-*Andmebaas*
-Esimene mõte PostgreSQL, aga Ehk sobib hoopis SQLite? See on "serverless" SQL andmebaas. Saate oma lahendusega andmebaasi faili ilusal kujul kaasa pakendada ning kõiki neid probleeme vältida. Java-maailmas kasutatakse SQLite asemel tihti H2-nimelist andmebaasi, kuna see on ise Javas kirjutatud.

@@ -1,6 +1,22 @@
 package userform;
 
-import graphics.Userbutton;
+
+
+
+
+
+//ALL IN ONE CLASS if all fails
+
+
+
+
+
+
+
+
+
+import View.Userbutton;
+import View.Userslider;
 import javafx.animation.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -14,21 +30,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import regression.LinearRegression;
-import sql.Postgresql;
-
+import model.LinearRegression;
+import model.Postgresql;
 import java.util.ArrayList;
 import java.util.List;
 
-import static javafx.scene.paint.Color.*;
-
-/**
- * Created by priit on 06-Nov-15.
- */
 public class userform extends Application {
     Stage stage;
     StackPane stackPane;
@@ -48,12 +56,27 @@ public class userform extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        setupStage();
         setupTabUser();
-        //checkInputs();
         setuptabAdmin();
+        setupStage();
     }
 
+    private void setupStage() {
+        stackPane = new StackPane();
+        TabPane tabPane = new TabPane();
+        tabUser.setText("User");
+        tabAdmin.setText("Admin");
+
+        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+        tabPane.getTabs().add(tabUser);
+        tabPane.getTabs().add(tabAdmin);
+
+        Scene scene= new Scene(tabPane, xSize, ySize);
+        stage.setY(10);
+        stage.setScene(scene);
+        stage.show();
+        stage.setOnCloseRequest(event -> {System.exit(0);});//lõpetab programmi, kui sulgeme akna
+    }
     private void setuptabAdmin() {
         VBox vbox = new VBox();
         BorderPane borderPane = new BorderPane();
@@ -83,7 +106,6 @@ public class userform extends Application {
             sql.execute_query(query);
             labelComments.setText("height_weight tabelis on ridasid:" + sql.select("Select count(id) from height_weight;"));
         });
-
     }
 
     private void setupTabUser() {
@@ -96,27 +118,10 @@ public class userform extends Application {
         fieldInputName.setMaxWidth(100);
 
         Label labelInputHeight = new Label("Sinu pikkus sentimeetrites: "+inputHeight);
-
-        Slider sliderInputHeight = new Slider();
-        sliderInputHeight.setMin(150);
-        sliderInputHeight.setMax(210);
-        sliderInputHeight.setValue(inputHeight);
-        sliderInputHeight.setShowTickLabels(true);
-        sliderInputHeight.setShowTickMarks(true);
-        sliderInputHeight.setMajorTickUnit(10);
-        sliderInputHeight.setMinorTickCount(5);
-        sliderInputHeight.setMaxWidth(xSize-100);
+        Userslider sliderInputHeight = new Userslider(150,200,inputHeight,xSize);
 
         Label  labelInputWeight= new Label("Sinu kaal kilogrammides: "+inputWeight);
-        Slider sliderInputWeight = new Slider();
-        sliderInputWeight.setMin(40);
-        sliderInputWeight.setMax(120);
-        sliderInputWeight.setValue(inputWeight);
-        sliderInputWeight.setShowTickLabels(true);
-        sliderInputWeight.setShowTickMarks(true);
-        sliderInputWeight.setMajorTickUnit(10);
-        sliderInputWeight.setMinorTickCount(5);
-        sliderInputWeight.setMaxWidth(xSize-100);
+        Userslider sliderInputWeight = new Userslider(40,120,inputWeight,xSize);
 
         Userbutton buttonSave = new Userbutton("Salvesta andmed");
         Userbutton buttonPredict = new Userbutton("Ennusta kaal pikkuse alusel");
@@ -151,7 +156,6 @@ public class userform extends Application {
             buttonSave.setClicked();
             buttonPredict.setClicked();
 
-
             //andmed dbst
         });
 
@@ -182,7 +186,12 @@ public class userform extends Application {
             sliderInputWeight.setValue(inputWeight);
 
             labelComments.setText("");
-            buttonCloseChart.fire();
+            buttonCloseChart.fire(); //sulgeb joonise
+
+            buttonSave.setClickedEnable();
+            buttonOpenChart.setClickedDisable();
+            buttonPredict.setClickedDisable();
+
         });
         buttonOpenChart.setOnAction(event -> {
             if (id==0){
@@ -191,13 +200,13 @@ public class userform extends Application {
                 roomForChartAnimation(ySize + 400);
                 borderPane.setBottom(drawChart());
             }
-            buttonCloseChart.setClicked();
-            buttonOpenChart.setClicked();
+            buttonCloseChart.setClickedEnable();
+            buttonOpenChart.setClickedDisable();
         });
         buttonCloseChart.setOnAction(event -> {
             roomForChartAnimation(ySize);
-            buttonCloseChart.setClicked();
-            buttonOpenChart.setClicked();
+            buttonCloseChart.setClickedDisable();
+            buttonOpenChart.setClickedEnable();
         });
 
         sliderInputHeight.valueProperty().addListener((observable, vanaVaartus, uusVaartus) -> {
@@ -211,32 +220,32 @@ public class userform extends Application {
             //http://i200.itcollege.ee/javafx-Slider
             inputWeight = uusVaartus.intValue();
             labelInputWeight.setText("Sinu kaal kilogrammides: " +inputWeight);
-            buttonSave.setDisable(false);
             buttonSave.setClickedEnable();
         });
-
     }
 
-
     public ScatterChart<Number,Number> drawChart(){
-        String query = new String("select max(height), min(height) from height_weight;");
+        String query = new String("select max(height), min(height) from height_weight;"); //get max and min for x axis length
         System.out.println(query);
         ArrayList<List> maxData = new ArrayList(sql.select(query)) ;
 
-        final NumberAxis xAxis = new NumberAxis(roundUpDown(Integer.parseInt((String) (maxData.get(0).get(1))), -10),
-                roundUpDown(Integer.parseInt((String)(maxData.get(0).get(0)) ),10), 10);
+        int minAxisValue = roundUpDown(Integer.parseInt((String)(maxData.get(0).get(1))),-10);
+        int maxAxisValue = roundUpDown(Integer.parseInt((String)(maxData.get(0).get(0)) ),10);
+        final NumberAxis xAxis = new NumberAxis(minAxisValue, maxAxisValue, 10);
 
-         query = ("select max(weight), min(weight) from height_weight;");
+        query = ("select max(weight), min(weight) from height_weight;"); //get max and min for y axis lengths
         System.out.println(query);
         maxData = (sql.select(query)) ;
 
-        final NumberAxis yAxis = new NumberAxis(roundUpDown(Integer.parseInt((String)(maxData.get(0).get(1))),-10),
-                roundUpDown(Integer.parseInt((String)(maxData.get(0).get(0)) ),10), 10);
+        minAxisValue = roundUpDown(Integer.parseInt((String)(maxData.get(0).get(1))),-10);
+        maxAxisValue = roundUpDown(Integer.parseInt((String)(maxData.get(0).get(0)) ),10);
+        final NumberAxis yAxis = new NumberAxis(minAxisValue, maxAxisValue, 10);
 
-        final ScatterChart<Number,Number> sc = new
-                ScatterChart<Number,Number>(xAxis,yAxis);
+        //format scatter chart
         xAxis.setLabel("Pikkus cm");
         yAxis.setLabel("Kaal kg");
+
+        final ScatterChart<Number,Number> sc = new ScatterChart<Number,Number>(xAxis,yAxis);
         sc.setTitle("Pikkuse ja kaalu seos");
 
         query = ("Select height, weight from height_weight where id != "+id+";");
@@ -263,34 +272,8 @@ public class userform extends Application {
         } else {
             sc.getData().addAll(series1, series2);
         }
-        //Scene scene  = new Scene(sc, 500, 400);
-        //stage.setScene(scene);
-        //stage.show();
-        return sc;
-    }
 
-    public static boolean isInteger(String str) {
-        if (str == null) {
-            return false;
-        }
-        int length = str.length();
-        if (length == 0) {
-            return false;
-        }
-        int i = 0;
-        if (str.charAt(0) == '-') {
-            if (length == 1) {
-                return false;
-            }
-            i = 1;
-        }
-        for (; i < length; i++) {
-            char c = str.charAt(i);
-            if (c < '0' || c > '9') {
-                return false;
-            }
-        }
-        return true;
+        return sc;
     }
 
     public static int roundUpDown(int number, int by){
@@ -340,19 +323,5 @@ public class userform extends Application {
 
     }
 
-    private void setupStage() {
-        stackPane = new StackPane();
-        TabPane tabPane = new TabPane();
-        tabUser.setText("User");
-        tabAdmin.setText("Admin");
-        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-        tabPane.getTabs().add(tabUser);
-        tabPane.getTabs().add(tabAdmin);
 
-        Scene scene= new Scene(tabPane, xSize, ySize);
-        stage.setY(10);
-        stage.setScene(scene);
-        stage.show();
-        stage.setOnCloseRequest(event -> {System.exit(0);});//lõpetab programmi, kui sulgeme akna
-    }
 }
